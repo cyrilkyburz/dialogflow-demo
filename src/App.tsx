@@ -21,6 +21,7 @@ const App: React.FC = () => {
       <ChatInput
         submit={text => {
           console.log(text);
+          setMessages([...messages, { text, sent: true }]);
           return Promise.resolve(true);
         }}
       />

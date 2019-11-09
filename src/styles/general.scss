@@ -12,12 +12,14 @@ body {
 
 .Chat {
   width: 300px;
-  margin: 5vh auto 5vh;
+  max-height: 500px;
   height: 90vh;
+  margin: 5vh auto 5vh;
   box-shadow: $shadow;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  overflow: hidden;
 
   h1 {
     background: $renuo-color;
@@ -27,13 +29,17 @@ body {
     text-align: center;
     padding: 10px 0;
     font-size: 24px;
+    line-height: 24px;
+    border-bottom: 2px solid #23bb88;
   }
 
   .messages {
     flex-grow: 1;
     background: #f6fdf9;
     overflow-x: scroll;
-    padding: 10px;
+    padding: 10px 20px 10px 10px;
+    margin-right: -10px;
+    max-height: calc(90vh - 107px);
 
     .message {
       max-width: 80%;
@@ -147,6 +153,15 @@ body {
         &:hover {
           background: darken($renuo-color, 10);
         }
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      svg {
+        margin-left: -2px;
+        margin-top: 2px;
       }
     }
   }
