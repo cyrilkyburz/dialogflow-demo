@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default function ChatInput({ submit }: { submit: (text: string) => Promise<boolean> }) {
   const ref = useRef<HTMLTextAreaElement>(null);
@@ -8,12 +8,11 @@ export default function ChatInput({ submit }: { submit: (text: string) => Promis
   const [error, setError] = useState('');
 
   const handleSubmit = async () => {
-    const result = await submit(text);
+    setText('');
+    ref.current!.focus();
 
-    if (result) {
-      setText('');
-      ref.current!.focus();
-    } else {
+    const result = await submit(text);
+    if (!result) {
       setError('Failed');
     }
   };
@@ -27,6 +26,7 @@ export default function ChatInput({ submit }: { submit: (text: string) => Promis
       {error.length > 0 && (
         <div className="error" onClick={() => setError('')}>
           {error}
+          <FontAwesomeIcon icon={faTimes} />
         </div>
       )}
     </div>

@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
-import { Messages } from './interfaces';
+import React, { useEffect, useState } from 'react';
+import { Message, Messages } from './interfaces';
 import MessagesView from './components/MessagesView';
 import ChatInput from './components/ChatInput';
 import DialogflowService from './services/dialogflow-service';
 
 const App: React.FC = () => {
   const [dialogflow] = useState(new DialogflowService());
-  const [messages, setMessages] = useState<Messages>([
-    { text: 'Hi', sent: true },
-    { text: 'Hi, I am Dialga. How can i help?', sent: false },
-    { text: 'Are you real?', sent: true },
-    { text: 'Or Chatbot?', sent: true },
-    { text: 'I am fake.', sent: false }
-  ]);
+  const [messages, setMessages] = useState<Messages>([{ text: 'Hi, I am Dialga. How can i help?', sent: false }]);
+  const [response, setResponse] = useState('');
+
+  const addMessage = (message: Message) => {
+    setMessages([...messages, message]);
+  };
+
+  useEffect(() => {
+    if (response.length) {
+      addMessage({ text: response, sent: false });
+      setResponse('');
+    }
+  }, [response]);
+
+  const handleSubmit = async (text: string) => {
+    addMessage({ text, sent: true });
+    const response = await dialogflow.submit(text);
+
+    if (response) {
+      setResponse(response);
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <div className="Chat">
@@ -20,14 +38,7 @@ const App: React.FC = () => {
         <h1>Dialogflow Demo</h1>
       </header>
       <MessagesView messages={messages} />
-      <ChatInput
-        submit={text => {
-          dialogflow.submit(text);
-          console.log(text);
-          setMessages([...messages, { text, sent: true }]);
-          return Promise.resolve(true);
-        }}
-      />
+      <ChatInput submit={handleSubmit} />
     </div>
   );
 };

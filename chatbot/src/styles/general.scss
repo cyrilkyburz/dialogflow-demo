@@ -20,6 +20,7 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   overflow: hidden;
+  position: relative;
 
   h1 {
     background: $renuo-color;
@@ -163,6 +164,25 @@ body {
       svg {
         margin-left: -2px;
         margin-top: 2px;
+      }
+    }
+
+    .error {
+      position: absolute;
+      background: #e44444;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      min-height: 60px;
+
+      svg {
+        position: absolute;
+        right: 10px;
+      }
+
+      &:hover {
+        background: lighten(#e44444, 10);
       }
     }
   }

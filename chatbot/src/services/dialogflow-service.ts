@@ -8,22 +8,25 @@ export default class DialogflowService {
   }
 
   async submit(text: string) {
-    const result = await fetch('url', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        sessionId: this.sessionId,
-        queryInput: {
-          text: {
-            text,
-            languageCode: 'en-US'
+    const result = await fetch(
+      'https://us-central1-dialogflow-playground-254910.cloudfunctions.net/dialogflowGateway',
+      {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId: this.sessionId,
+          queryInput: {
+            text: {
+              text,
+              languageCode: 'en-US'
+            }
           }
-        }
-      })
-    }).then(response => response.json());
+        })
+      }
+    ).then(response => response.json());
 
     console.log(result);
 
-    return result;
+    return result.fulfillmentText;
   }
 }
