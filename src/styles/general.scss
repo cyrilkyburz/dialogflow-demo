@@ -1,0 +1,153 @@
+$renuo-color: #26d79d;
+$shadow: 0 2px 5px hsla(0, 0%, 80%, .8);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  margin: 0 auto;
+}
+
+.Chat {
+  width: 300px;
+  margin: 5vh auto 5vh;
+  height: 90vh;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  h1 {
+    background: $renuo-color;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+  }
+
+  .messages {
+    flex-grow: 1;
+    background: #f6fdf9;
+    overflow-x: scroll;
+    padding: 10px;
+
+    .message {
+      max-width: 80%;
+      border-radius: 17px;
+      color: #000;
+      font-size: 14px;
+      line-height: 24px;
+      position: relative;
+      padding: 4px 10px;
+      display: table;
+      min-width: 40px;
+
+      & + .message {
+        margin-top: 10px;
+      }
+
+      &.sent + .message.sent {
+        margin-top: 5px;
+      }
+
+      &.received + .message.received {
+        margin-top: 5px;
+      }
+
+      &.received {
+        background: #fff;
+        box-shadow: $shadow;
+        border-bottom-left-radius: 0;
+
+        &:after, &:before {
+          left: 0;
+        }
+
+        &:after {
+          content: "◤";
+          color: #fff;
+          text-shadow: rgba(0, 0, 0, .22) 0 2px 4px;
+        }
+      }
+
+      &.sent {
+        background: #d7ffd7;
+        box-shadow: $shadow;
+        border-bottom-right-radius: 0;
+        margin-left: auto;
+
+        &:after, &:before {
+          right: 0;
+        }
+
+        &:after {
+          content: "◥";
+          color: #d7ffd7;
+          text-shadow: rgba(0, 0, 0, .22) 0 2px 4px;
+        }
+      }
+
+      &:before {
+        content: "";
+        height: 10px;
+        width: 20px;
+        display: block;
+        background-color: inherit;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+      }
+
+      &:after {
+        position: absolute;
+        bottom: -12px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .input {
+    padding: 10px;
+    background: #efefef;
+    box-shadow: $shadow;
+
+    textarea {
+      height: 40px;
+      margin-right: 10px;
+      width: calc(100% - 50px);
+      float: left;
+      resize: none;
+      border-radius: 20px;
+      padding: 10px;
+      font-size: 14px;
+      border: 0;
+      box-shadow: 0 1px 5px rgba(222, 222, 222, 0.8);
+
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    button {
+      border: 1px solid $renuo-color;
+      background: $renuo-color;
+      color: #fff;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      font-size: 20px;
+      box-shadow: $shadow;
+      float: right;
+
+      &:not([disabled]) {
+        &:hover {
+          background: darken($renuo-color, 10);
+        }
+      }
+    }
+  }
+}
