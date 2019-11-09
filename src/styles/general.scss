@@ -39,7 +39,8 @@ body {
     overflow-x: scroll;
     padding: 10px 20px 10px 10px;
     margin-right: -10px;
-    max-height: calc(90vh - 107px);
+    height: calc(90vh - 107px);
+    max-height: 393px;
 
     .message {
       max-width: 80%;
