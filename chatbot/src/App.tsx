@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Messages } from './interfaces';
 import MessagesView from './components/MessagesView';
 import ChatInput from './components/ChatInput';
+import DialogflowService from './services/dialogflow-service';
 
 const App: React.FC = () => {
+  const [dialogflow] = useState(new DialogflowService());
   const [messages, setMessages] = useState<Messages>([
     { text: 'Hi', sent: true },
     { text: 'Hi, I am Dialga. How can i help?', sent: false },
@@ -20,6 +22,7 @@ const App: React.FC = () => {
       <MessagesView messages={messages} />
       <ChatInput
         submit={text => {
+          dialogflow.submit(text);
           console.log(text);
           setMessages([...messages, { text, sent: true }]);
           return Promise.resolve(true);
