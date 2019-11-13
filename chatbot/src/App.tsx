@@ -35,7 +35,7 @@ const App: React.FC = () => {
   return (
     <div className="Chat">
       <header>
-        <h1>Dialogflow Demo</h1>
+        <h1>RenuoBot</h1>
       </header>
       <MessagesView messages={messages} />
       <ChatInput submit={handleSubmit} />

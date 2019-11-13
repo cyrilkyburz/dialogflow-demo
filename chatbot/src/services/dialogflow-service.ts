@@ -9,7 +9,7 @@ export default class DialogflowService {
 
   async submit(text: string) {
     const result = await fetch(
-      'https://us-central1-dialogflow-playground-254910.cloudfunctions.net/dialogflowGateway',
+      'https://europe-west1-renuochatbot.cloudfunctions.net/dialogflowGateway\n',
       {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
