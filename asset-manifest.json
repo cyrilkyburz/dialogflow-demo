@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "http://cyrilkyburz.ch/dialogflow-demo/static/css/main.81c34cda.chunk.css",
-    "main.js": "http://cyrilkyburz.ch/dialogflow-demo/static/js/main.9e3d4148.chunk.js",
-    "main.js.map": "http://cyrilkyburz.ch/dialogflow-demo/static/js/main.9e3d4148.chunk.js.map",
-    "runtime-main.js": "http://cyrilkyburz.ch/dialogflow-demo/static/js/runtime-main.666c92f8.js",
-    "runtime-main.js.map": "http://cyrilkyburz.ch/dialogflow-demo/static/js/runtime-main.666c92f8.js.map",
-    "static/js/2.cac71159.chunk.js": "http://cyrilkyburz.ch/dialogflow-demo/static/js/2.cac71159.chunk.js",
-    "static/js/2.cac71159.chunk.js.map": "http://cyrilkyburz.ch/dialogflow-demo/static/js/2.cac71159.chunk.js.map",
-    "index.html": "http://cyrilkyburz.ch/dialogflow-demo/index.html",
-    "precache-manifest.cafd1d1932c51cd4d5f6690a1a0acabe.js": "http://cyrilkyburz.ch/dialogflow-demo/precache-manifest.cafd1d1932c51cd4d5f6690a1a0acabe.js",
-    "service-worker.js": "http://cyrilkyburz.ch/dialogflow-demo/service-worker.js",
-    "static/css/main.81c34cda.chunk.css.map": "http://cyrilkyburz.ch/dialogflow-demo/static/css/main.81c34cda.chunk.css.map"
+    "main.css": "/dialogflow-demo/static/css/main.81c34cda.chunk.css",
+    "main.js": "/dialogflow-demo/static/js/main.85830885.chunk.js",
+    "main.js.map": "/dialogflow-demo/static/js/main.85830885.chunk.js.map",
+    "runtime-main.js": "/dialogflow-demo/static/js/runtime-main.82de4b87.js",
+    "runtime-main.js.map": "/dialogflow-demo/static/js/runtime-main.82de4b87.js.map",
+    "static/js/2.cac71159.chunk.js": "/dialogflow-demo/static/js/2.cac71159.chunk.js",
+    "static/js/2.cac71159.chunk.js.map": "/dialogflow-demo/static/js/2.cac71159.chunk.js.map",
+    "index.html": "/dialogflow-demo/index.html",
+    "precache-manifest.bacf43083e85f3a670137cb0b83c9782.js": "/dialogflow-demo/precache-manifest.bacf43083e85f3a670137cb0b83c9782.js",
+    "service-worker.js": "/dialogflow-demo/service-worker.js",
+    "static/css/main.81c34cda.chunk.css.map": "/dialogflow-demo/static/css/main.81c34cda.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.666c92f8.js",
+    "static/js/runtime-main.82de4b87.js",
     "static/js/2.cac71159.chunk.js",
     "static/css/main.81c34cda.chunk.css",
-    "static/js/main.9e3d4148.chunk.js"
+    "static/js/main.85830885.chunk.js"
   ]
 }
